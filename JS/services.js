@@ -1,33 +1,33 @@
-/* =====================================
-   SERVICES INTERACTIONS
-   Theme is controlled by NAVBAR
-===================================== */
+document.addEventListener("componentsLoaded", () => {
 
-document.addEventListener("DOMContentLoaded", () => {
+    const elements = document.querySelectorAll(
+        "#services .reveal"
+    );
 
-  const cards = document.querySelectorAll(".service-card");
+    if (!elements.length) return;
 
-  cards.forEach((card) => {
+    const observer = new IntersectionObserver(
+        (entries, observerInstance) => {
 
-    card.addEventListener("mousemove", (e) => {
+            entries.forEach((entry) => {
 
-      const rect = card.getBoundingClientRect();
+                if (!entry.isIntersecting) return;
 
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
+                entry.target.classList.add("visible");
 
-      card.style.setProperty("--mouse-x", `${x}px`);
-      card.style.setProperty("--mouse-y", `${y}px`);
+                observerInstance.unobserve(entry.target);
 
+            });
+
+        },
+        {
+            threshold: 0.12,
+            rootMargin: "0px 0px -70px 0px"
+        }
+    );
+
+    elements.forEach((element) => {
+        observer.observe(element);
     });
-
-    card.addEventListener("mouseleave", () => {
-
-      card.style.removeProperty("--mouse-x");
-      card.style.removeProperty("--mouse-y");
-
-    });
-
-  });
 
 });

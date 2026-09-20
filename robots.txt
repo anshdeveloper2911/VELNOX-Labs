@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://velnoxlabs-webstudio.vercel.app/sitemap.xml
+Sitemap: https://velnox-weblabs.web.app/sitemap.xml

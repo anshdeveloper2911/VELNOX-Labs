@@ -1,0 +1,20 @@
+VELNOX BACKEND — QUICK START
+
+1. Open PowerShell in this folder.
+2. Run:
+   .\START-BACKEND.ps1
+
+OR manually:
+   cd backend
+   npm install
+   npm start
+
+Then open:
+   http://localhost:3000/api/health
+   http://localhost:3000/admin/
+
+Admin login:
+   Username: admin
+   Password: velnox123
+
+The frontend automatically uses http://localhost:3000 when opened from localhost.

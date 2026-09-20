@@ -1,0 +1,18 @@
+{
+  "name": "velnox-backend",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "description": "VELNOX Web Labs API, database and admin backend",
+  "scripts": {"start": "node server.js", "dev": "node --watch server.js"},
+  "engines": {"node": ">=20"},
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.6.1",
+    "express": "^5.1.0",
+    "express-rate-limit": "^8.2.1",
+    "helmet": "^8.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "sql.js": "^1.13.0"
+  }
+}

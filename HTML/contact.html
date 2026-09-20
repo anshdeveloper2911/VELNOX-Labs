@@ -2,170 +2,103 @@
 
     <div class="contact-container">
 
-        <!-- Heading -->
-        <div class="contact-heading">
+        <!-- HEADER -->
+        <div class="contact-header">
 
-            <span class="contact-tag">
-                GET IN TOUCH
-            </span>
+            <div class="contact-label">
+                <span></span>
+                Contact Us
+            </div>
 
             <h2>
-                Let's build something
-                <span>great.</span>
+                Let's Build
+                <br>
+                <span>Something Great.</span>
             </h2>
 
             <p>
-                Have a project, idea, or business that needs a
-                better digital presence? Tell us about it.
+                Have an idea, project, or something you want to build?
+                Tell us about it and let's turn your vision into a
+                digital experience.
             </p>
 
         </div>
 
 
-        <div class="contact-grid">
+        <!-- FORM -->
+        <form
+            id="velnox-contact-form"
+            class="contact-form"
+            method="POST"
+            novalidate
+        >
 
-            <!-- Left -->
-            <div class="contact-info">
+            <div class="form-row">
 
-                <div class="contact-info-item">
-
-                    <span class="contact-number">01</span>
-
-                    <div>
-                        <h3>Start a Project</h3>
-                        <p>
-                            Share your requirements and we'll
-                            get back to you.
-                        </p>
-                    </div>
-
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        placeholder="Enter your name"
+                        required
+                    >
                 </div>
 
-
-                <div class="contact-info-item">
-
-                    <span class="contact-number">02</span>
-
-                    <div>
-                        <h3>Tell Us Your Idea</h3>
-                        <p>
-                            No idea is too early. Let's discuss
-                            what you're planning.
-                        </p>
-                    </div>
-
-                </div>
-
-
-                <div class="contact-info-item">
-
-                    <span class="contact-number">03</span>
-
-                    <div>
-                        <h3>Let's Create</h3>
-                        <p>
-                            Once everything is clear, we'll
-                            turn the idea into reality.
-                        </p>
-                    </div>
-
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="you@example.com"
+                        required
+                    >
                 </div>
 
             </div>
 
 
-            <!-- Form -->
-            <form
-                class="contact-form"
-                id="contactForm"
-                method="POST"
-                action="https://script.google.com/macros/s/AKfycbyP39aUHsAyOv516Qy91kxDxCrvWHiB01nrNX00E8PsxoGJV81qrHOrZxX6Wpyp-_Uq/exec"
-            >
+            <div class="form-row">
 
-                <div class="contact-form-row">
-
-                    <div class="contact-field">
-
-                        <label for="name">
-                            Name
-                        </label>
-
-                        <input
-                            type="text"
-                            id="name"
-                            name="name"
-                            placeholder="Your name"
-                            required
-                        >
-
-                    </div>
-
-
-                    <div class="contact-field">
-
-                        <label for="email">
-                            Email
-                        </label>
-
-                        <input
-                            type="email"
-                            id="email"
-                            name="email"
-                            placeholder="you@example.com"
-                            required
-                        >
-
-                    </div>
-
-                </div>
-
-
-                <div class="contact-field">
-
-                    <label for="phone">
-                        Phone
-                    </label>
-
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
                     <input
                         type="tel"
                         id="phone"
                         name="phone"
                         placeholder="+91 XXXXX XXXXX"
                     >
-
                 </div>
 
+                <div class="form-group">
+                    <label for="service">What do you need?</label>
 
-                <div class="contact-field">
+                    <select id="service" name="service" required>
 
-                    <label for="service">
-                        What do you need?
-                    </label>
-
-                    <select
-                        id="service"
-                        name="service"
-                        required
-                    >
-
-                        <option value="" selected disabled>
+                        <option value="" disabled selected>
                             Select a service
                         </option>
 
-                        <option value="Website Development">
-                            Website Development
+                        <option value="Web Development">
+                            Web Development
                         </option>
 
-                        <option value="Web Application">
-                            Web Application
+                        <option value="App Development">
+                            App Development
                         </option>
 
                         <option value="UI UX Design">
                             UI / UX Design
                         </option>
 
-                        <option value="Website Redesign">
-                            Website Redesign
+                        <option value="Graphic Design">
+                            Graphic Design
+                        </option>
+
+                        <option value="Video Editing">
+                            Video Editing
                         </option>
 
                         <option value="Other">
@@ -173,49 +106,44 @@
                         </option>
 
                     </select>
-
                 </div>
 
+            </div>
 
-                <div class="contact-field">
 
-                    <label for="message">
-                        Project Details
-                    </label>
+            <div class="form-group form-message">
 
-                    <textarea
-                        id="message"
-                        name="message"
-                        rows="5"
-                        placeholder="Tell us a little about your project..."
-                        required
-                    ></textarea>
+                <label for="message">Tell us about your project</label>
 
-                </div>
+                <input type="text" id="website" name="honey" tabindex="-1" autocomplete="off" style="position:absolute;left:-10000px;opacity:0" aria-hidden="true">
 
+                <textarea
+                    id="message"
+                    name="message"
+                    rows="5"
+                    placeholder="Tell us what you're looking to build..."
+                    required
+                ></textarea>
+
+            </div>
+
+
+            <div class="form-submit">
 
                 <button
                     type="submit"
-                    class="contact-submit"
-                    id="contactSubmit"
+                    id="contact-submit"
                 >
-
                     <span>Send Enquiry</span>
-
-                    <span>↗</span>
-
+                    <b>↗</b>
                 </button>
 
+                <p id="contact-status"></p>
 
-                <p
-                    class="contact-status"
-                    id="contactStatus"
-                    aria-live="polite"
-                ></p>
+            </div>
 
-            </form>
+        </form>
 
-        </div>
 
     </div>
 

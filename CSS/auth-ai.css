@@ -1,0 +1,64 @@
+:root { --accent: #6478ff; --accent-2: #8b5cf6; --surface: #f5f7ff; --ink: #141722; }
+#velnox-login, #velnox-account { border: 1px solid #dfe3f4; background: #fff; color: var(--ink); border-radius: 999px; padding: 10px 14px; cursor: pointer; font-weight: 700; }
+#velnox-account { display: inline-flex; align-items: center; gap: 8px; }
+#velnox-account img { width: 26px; height: 26px; border-radius: 50%; object-fit: cover; }
+#velnox-account[hidden], #velnox-login[hidden] { display: none; }
+#velnox-ai-open { position: fixed; right: 22px; bottom: 22px; z-index: 50; border: 0; border-radius: 999px; padding: 14px 18px; background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: white; box-shadow: 0 14px 40px #6478ff45; cursor: pointer; font-weight: 800; }
+#velnox-ai { position: fixed; right: 22px; bottom: 82px; width: min(380px, calc(100vw - 32px)); z-index: 60; background: white; border: 1px solid #e4e7f2; border-radius: 22px; box-shadow: 0 20px 70px #171b2b30; overflow: hidden; }
+#velnox-ai[hidden] { display: none; }
+.ai-head { display: flex; justify-content: space-between; align-items: center; padding: 16px 18px; background: var(--surface); }
+.ai-head button { border: 0; background: transparent; font-size: 22px; cursor: pointer; }
+#velnox-ai-messages { display: flex; flex-direction: column; gap: 10px; padding: 16px; height: 300px; overflow: auto; background: #fff; }
+.ai-message { max-width: 85%; padding: 10px 12px; border-radius: 14px; white-space: pre-wrap; font-size: 14px; line-height: 1.5; }
+.ai-message.user { align-self: flex-end; color: #fff; background: var(--accent); }
+.ai-message.assistant { align-self: flex-start; background: #f1f3f9; color: #222638; }
+.ai-message.error { background: #fff0f0; color: #9d2525; }
+#velnox-ai-form { display: flex; gap: 8px; padding: 12px; border-top: 1px solid #eceef5; }
+#velnox-ai-input { min-width: 0; flex: 1; border: 1px solid #dfe3f0; border-radius: 12px; padding: 11px; outline-color: var(--accent); }
+#velnox-ai-form button { border: 0; border-radius: 12px; padding: 0 15px; color: white; background: var(--accent); cursor: pointer; }
+
+
+/* ==================== PROFESSIONAL AUTH UI ==================== */
+#velnox-login.auth-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 42px;
+  padding: 0 15px;
+  border: 1px solid #d9dce5;
+  border-radius: 999px;
+  background: #fff;
+  color: #161821;
+  font-size: 13px;
+  font-weight: 750;
+  transition: .25s ease;
+}
+#velnox-login.auth-trigger:hover { border-color: #111; transform: translateY(-1px); }
+.auth-dot { width: 7px; height: 7px; border-radius: 50%; background: #18df8a; box-shadow: 0 0 0 4px #18df8a22; }
+.auth-modal[hidden] { display: none; }
+.auth-modal { position: fixed; inset: 0; z-index: 100000; display: grid; place-items: center; padding: 20px; }
+.auth-backdrop { position: absolute; inset: 0; background: rgba(10,12,18,.58); backdrop-filter: blur(10px); }
+.auth-card { position: relative; width: min(100%, 410px); padding: 38px 30px 28px; border: 1px solid #ffffff30; border-radius: 28px; background: #fff; color: #11131a; box-shadow: 0 28px 100px #0005; text-align: center; animation: authIn .3s ease both; }
+.auth-close { position: absolute; top: 14px; right: 15px; width: 34px; height: 34px; border: 1px solid #e6e7ec; border-radius: 50%; background: #f7f7f9; color: #555; font-size: 22px; line-height: 1; cursor: pointer; }
+.auth-brand { display: grid; place-items: center; width: 58px; height: 58px; margin: 0 auto 16px; border-radius: 18px; background: #11131a; color: #fff; font-size: 30px; font-weight: 850; letter-spacing: -.08em; }
+.auth-brand span { color: #18df8a; }
+.auth-kicker { margin: 0 0 10px; color: #737785; font-size: 10px; font-weight: 800; letter-spacing: .18em; }
+.auth-card h2 { margin: 0; font-size: clamp(28px, 5vw, 36px); letter-spacing: -.06em; }
+.auth-description { margin: 12px auto 26px; max-width: 285px; color: #6d7180; font-size: 14px; line-height: 1.65; }
+.google-auth-button { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 16px; border: 1px solid #dfe2e9; border-radius: 14px; background: #fff; color: #171923; font-size: 14px; font-weight: 750; cursor: pointer; transition: .25s ease; }
+.google-auth-button:hover { border-color: #111; background: #f8f9fb; transform: translateY(-1px); }
+.google-mark { display: grid; place-items: center; width: 26px; height: 26px; border-radius: 50%; background: #f1f3f7; font-weight: 900; color: #4285f4; }
+.auth-note { margin: 18px 0 0; color: #9296a3; font-size: 11px; line-height: 1.5; }
+.mobile-auth-trigger { width: 100%; display: flex; align-items: center; justify-content: space-between; margin-top: 10px; min-height: 50px; padding: 0 18px; border: 1px solid #dfe2e8; border-radius: 999px; background: #111; color: #fff; font-size: 14px; cursor: pointer; }
+@keyframes authIn { from { opacity: 0; transform: translateY(12px) scale(.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
+
+@media (max-width: 760px) {
+  #velnox-ai-open { right: 14px; bottom: 14px; padding: 12px 14px; font-size: 12px; }
+  #velnox-ai { right: 10px; bottom: 70px; width: calc(100vw - 20px); border-radius: 18px; }
+  #velnox-ai-messages { height: min(48vh, 310px); padding: 12px; }
+  #velnox-ai-form { padding: 10px; gap: 6px; }
+  #velnox-ai-input { font-size: 16px; }
+  #velnox-ai-form button { padding: 0 12px; }
+  .auth-card { padding: 34px 22px 24px; border-radius: 24px; }
+}
+@media (prefers-reduced-motion: reduce) { .auth-card { animation: none; } }

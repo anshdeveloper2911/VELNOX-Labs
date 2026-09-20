@@ -1,88 +1,33 @@
-/* =========================================================
-   VELNOX — TEAM SYSTEM
-   Team Card Reveal Animation
-========================================================= */
+document.addEventListener("componentsLoaded", () => {
 
-(() => {
+    const cards = document.querySelectorAll(".team-card");
 
-    "use strict";
+    if (!cards.length) return;
 
+    const observer = new IntersectionObserver(
+        (entries) => {
 
-    /* =========================================================
-       TEAM CARDS
-    ========================================================= */
+            entries.forEach((entry) => {
 
-    const teamCards =
-        document.querySelectorAll(".team-card");
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("is-visible");
+                    observer.unobserve(entry.target);
+                }
 
+            });
 
-    /* =========================================================
-       CHECK
-    ========================================================= */
+        },
+        {
+            threshold: 0.12
+        }
+    );
 
-    if (!teamCards.length) {
+    cards.forEach((card, index) => {
 
-        console.log(
-            "⚠ VELNOX Team: No team cards found"
-        );
+        card.style.transitionDelay = `${index * 80}ms`;
 
-        return;
-    }
-
-
-    /* =========================================================
-       INTERSECTION OBSERVER
-    ========================================================= */
-
-    const teamObserver =
-        new IntersectionObserver(
-            (entries, observer) => {
-
-                entries.forEach((entry) => {
-
-                    if (!entry.isIntersecting) {
-                        return;
-                    }
-
-
-                    entry.target.classList.add(
-                        "team-visible"
-                    );
-
-
-                    observer.unobserve(
-                        entry.target
-                    );
-
-                });
-
-            },
-            {
-                threshold: 0.15
-            }
-        );
-
-
-    /* =========================================================
-       INITIALIZE
-    ========================================================= */
-
-    teamCards.forEach((card, index) => {
-
-        card.style.transitionDelay =
-            `${index * 0.12}s`;
-
-        teamObserver.observe(card);
+        observer.observe(card);
 
     });
 
-
-    /* =========================================================
-       FINAL
-    ========================================================= */
-
-    console.log(
-        "✓ VELNOX Team Loaded"
-    );
-
-})();
+});

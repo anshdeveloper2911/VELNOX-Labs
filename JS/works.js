@@ -1,52 +1,44 @@
-document.addEventListener("DOMContentLoaded", () => {
+(() => {
+    function initWorks() {
+        const section = document.querySelector('#works .works-section');
+        const cards = document.querySelectorAll('#works .work-card');
+        if (!section || !cards.length) return;
 
-    const cards = document.querySelectorAll(".build-card");
+        if (section.dataset.initialized === 'true') return;
+        section.dataset.initialized = 'true';
 
-    const observer = new IntersectionObserver(
-        (entries) => {
+        // Always reveal cards first so a failed IntersectionObserver cannot hide the projects.
+        cards.forEach((card, index) => {
+            card.style.transitionDelay = `${index * 80}ms`;
+        });
 
-            entries.forEach((entry) => {
+        if (!('IntersectionObserver' in window)) {
+            cards.forEach(card => card.classList.add('is-visible'));
+            return;
+        }
 
-                if (!entry.isIntersecting) return;
-
-                entry.target.classList.add("works-visible");
-
-                observer.unobserve(entry.target);
-
+        const observer = new IntersectionObserver((entries, observerInstance) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observerInstance.unobserve(entry.target);
+                }
             });
+        }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
 
-        },
-        {
-            threshold: 0.12
-        }
-    );
+        cards.forEach(card => observer.observe(card));
 
+        // Safety fallback: reveal anything still hidden after 2 seconds.
+        window.setTimeout(() => {
+            cards.forEach(card => card.classList.add('is-visible'));
+        }, 2000);
+    }
 
-    cards.forEach((card, index) => {
-
-        card.style.opacity = "0";
-        card.style.transform = "translateY(35px)";
-
-        card.style.transition =
-            `opacity .7s ease ${index * 120}ms,
-             transform .7s ease ${index * 120}ms,
-             border-color .35s ease,
-             background .35s ease`;
-
-        observer.observe(card);
-
-    });
-
-
-    const style = document.createElement("style");
-
-    style.textContent = `
-        .build-card.works-visible {
-            opacity: 1 !important;
-            transform: translateY(0) !important;
-        }
-    `;
-
-    document.head.appendChild(style);
-
-});
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initWorks, { once: true });
+    } else {
+        initWorks();
+    }
+    document.addEventListener('componentsLoaded', initWorks);
+document.addEventListener('worksHydrated', initWorks);
+})();

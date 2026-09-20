@@ -1,111 +1,28 @@
-/* =========================================================
-   VELNOX — CONTACT SYSTEM
-   Google Apps Script Form Submission
-========================================================= */
-
-(() => {
-
-    "use strict";
-
-
-    const form =
-        document.getElementById("contactForm");
-
-    const submitButton =
-        document.getElementById("contactSubmit");
-
-    const status =
-        document.getElementById("contactStatus");
-
-
-    if (!form || !submitButton || !status) {
-
-        console.log(
-            "⚠ VELNOX Contact: Elements not found"
-        );
-
-        return;
-    }
-
-
-    form.addEventListener(
-        "submit",
-        async (event) => {
-
-            event.preventDefault();
-
-
-            const originalText =
-                submitButton.innerHTML;
-
-
-            submitButton.disabled = true;
-
-            submitButton.innerHTML =
-                "<span>Sending...</span><span>↗</span>";
-
-            status.textContent = "";
-
-            status.className =
-                "contact-status";
-
-
-            try {
-
-                const formData =
-                    new FormData(form);
-
-
-                await fetch(
-                    form.action,
-                    {
-                        method: "POST",
-                        body: formData,
-                        mode: "no-cors"
-                    }
-                );
-
-
-                status.textContent =
-                    "Your enquiry has been sent successfully.";
-
-                status.classList.add(
-                    "success"
-                );
-
-
-                form.reset();
-
-
-            } catch (error) {
-
-                console.error(
-                    "Contact form error:",
-                    error
-                );
-
-
-                status.textContent =
-                    "Something went wrong. Please try again.";
-
-                status.classList.add(
-                    "error"
-                );
-
-            }
-
-
-            submitButton.disabled = false;
-
-            submitButton.innerHTML =
-                originalText;
-
+document.addEventListener("componentsLoaded", () => {
+    const form = document.querySelector("#velnox-contact-form");
+    const status = document.querySelector("#contact-status");
+    const button = document.querySelector("#contact-submit");
+    if (!form || !status || !button) return;
+    const API = window.VELNOX_API || "";
+    form.addEventListener("submit", async (event) => {
+        event.preventDefault();
+        button.disabled = true;
+        button.querySelector("span").textContent = "Sending...";
+        status.textContent = "";
+        const data = Object.fromEntries(new FormData(form).entries());
+        try {
+            const response = await fetch(`${API}/api/enquiries`, {
+                method: "POST", headers: {"Content-Type":"application/json"}, body: JSON.stringify(data)
+            });
+            const result = await response.json().catch(() => ({}));
+            if (!response.ok) throw new Error(result.error || "Unable to send enquiry.");
+            status.textContent = "✓ Thanks! Your enquiry has been submitted.";
+            form.reset();
+        } catch (error) {
+            status.textContent = `Unable to send right now. ${error.message}`;
+        } finally {
+            button.disabled = false;
+            button.querySelector("span").textContent = "Send Enquiry";
         }
-    );
-
-
-    console.log(
-        "✓ VELNOX Contact Loaded"
-    );
-
-})();
+    });
+});

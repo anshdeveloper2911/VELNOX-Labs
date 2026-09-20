@@ -1,692 +1,487 @@
-/* ================================
-   SERVICES
-================================ */
+/* =========================================
+   VELNOX — SERVICES
+   ========================================= */
 
 .services-section {
-  position: relative;
-  padding: 120px 5vw;
-  overflow: hidden;
+    width: 100%;
+    background: #fff;
+    color: #111;
+    padding: 120px 0 150px;
+    overflow: hidden;
+}
 
-  background: #090a0d;
-  color: #fff;
-
-  transition:
-    background .45s ease,
-    color .45s ease;
+.services-container {
+    width: min(1280px, calc(100% - 80px));
+    margin: 0 auto;
 }
 
 
-/* ================================
-   TECH MARQUEE
-================================ */
-
-.tech-marquee {
-  width: 100%;
-  overflow: hidden;
-  margin-bottom: 110px;
-
-  mask-image: linear-gradient(
-    to right,
-    transparent,
-    #000 8%,
-    #000 92%,
-    transparent
-  );
-}
-
-.tech-track {
-  width: max-content;
-
-  display: flex;
-  align-items: center;
-  gap: 18px;
-
-  animation: techScroll 30s linear infinite;
-}
-
-.tech-track span {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-
-  padding: 14px 24px;
-
-  border: 1px solid rgba(255,255,255,.09);
-  border-radius: 999px;
-
-  background: rgba(255,255,255,.025);
-
-  color: #a8a8ad;
-
-  font-size: 15px;
-  font-weight: 600;
-
-  white-space: nowrap;
-
-  transition: .3s ease;
-}
-
-.tech-track span:hover {
-  color: #fff;
-  border-color: rgba(255,255,255,.25);
-  background: rgba(255,255,255,.07);
-}
-
-.tech-track i {
-  width: 8px;
-  height: 8px;
-
-  border-radius: 50%;
-
-  background: #7c3cff;
-
-  box-shadow: 0 0 14px #7c3cff;
-}
-
-@keyframes techScroll {
-  from {
-    transform: translateX(0);
-  }
-
-  to {
-    transform: translateX(-50%);
-  }
-}
-
-
-/* ================================
-   HEADING
-================================ */
-
-.services-heading {
-  max-width: 850px;
-  margin: 0 auto 70px;
-  text-align: center;
-}
+/* =========================================
+   LABEL
+   ========================================= */
 
 .services-label {
-  display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
 
-  margin-bottom: 20px;
+    padding: 7px 12px;
 
-  font-size: 12px;
-  font-weight: 800;
-  letter-spacing: 3px;
+    border-radius: 50px;
+    background: #ededed;
 
-  color: #8d8d95;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+
+    margin-bottom: 24px;
 }
 
-.services-heading h2 {
-  margin: 0;
+.services-label span {
+    width: 6px;
+    height: 6px;
 
-  font-size: clamp(42px, 6vw, 78px);
-  line-height: .98;
-  letter-spacing: -4px;
-
-  font-weight: 800;
-}
-
-.services-heading h2 span {
-  display: block;
-
-  background: linear-gradient(
-    90deg,
-    #fff,
-    #777,
-    #fff
-  );
-
-  background-size: 200% auto;
-
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-
-  animation: gradientMove 5s linear infinite;
-}
-
-@keyframes gradientMove {
-  to {
-    background-position: 200% center;
-  }
-}
-
-.services-heading p {
-  max-width: 620px;
-
-  margin: 28px auto 0;
-
-  color: #85858c;
-
-  font-size: 17px;
-  line-height: 1.7;
+    background: #111;
+    border-radius: 50%;
 }
 
 
-/* ================================
+/* =========================================
+   HEADER
+   ========================================= */
+
+.services-header {
+    display: grid;
+    grid-template-columns: minmax(0, 1.6fr) minmax(280px, .65fr);
+
+    gap: 80px;
+    align-items: end;
+
+    margin-bottom: 65px;
+}
+
+.services-header h2 {
+    margin: 0;
+
+    font-family: var(--font-heading);
+    font-size: clamp(48px, 6vw, 78px);
+    font-weight: 500;
+
+    line-height: 1.02;
+    letter-spacing: -.055em;
+}
+
+.services-header h2 span {
+    color: #777;
+}
+
+.services-header p {
+    margin: 0 0 5px;
+
+    max-width: 370px;
+
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.55;
+
+    color: #666;
+}
+
+
+/* =========================================
    GRID
-================================ */
+   ========================================= */
 
 .services-grid {
-  max-width: 1500px;
-  margin: auto;
-
-  display: grid;
-
-  grid-template-columns:
-    repeat(3, minmax(0, 1fr));
-
-  gap: 24px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
 }
 
 
-/* ================================
-   CARD
-================================ */
+/* =========================================
+   SERVICE CARD
+   ========================================= */
 
 .service-card {
-  position: relative;
+    position: relative;
 
-  min-height: 310px;
+    min-height: 530px;
 
-  padding: 48px 42px;
+    display: grid;
+    grid-template-columns: 1fr 48%;
 
-  border: 1px solid rgba(255,255,255,.08);
-  border-radius: 28px;
+    background: #f4f4f4;
 
-  background:
-    linear-gradient(
-      145deg,
-      rgba(255,255,255,.045),
-      rgba(255,255,255,.012)
-    );
+    border-radius: 10px;
 
-  overflow: hidden;
+    overflow: hidden;
 
-  transition:
-    transform .4s ease,
-    border-color .4s ease,
-    background .4s ease,
-    box-shadow .4s ease;
+    transition:
+        transform .45s cubic-bezier(.22,1,.36,1),
+        background .3s ease;
 }
-
-
-/* glow */
-
-.service-card::before {
-  content: "";
-
-  position: absolute;
-
-  width: 180px;
-  height: 180px;
-
-  top: -90px;
-  right: -90px;
-
-  border-radius: 50%;
-
-  background: #7c3cff;
-
-  filter: blur(80px);
-
-  opacity: 0;
-
-  transition: .5s ease;
-}
-
-
-/* hover */
 
 .service-card:hover {
-  transform: translateY(-8px);
-
-  border-color: rgba(124,60,255,.55);
-
-  background:
-    linear-gradient(
-      145deg,
-      rgba(255,255,255,.07),
-      rgba(255,255,255,.015)
-    );
-
-  box-shadow:
-    0 25px 80px rgba(0,0,0,.35);
-}
-
-.service-card:hover::before {
-  opacity: .18;
+    transform: translateY(-5px);
+    background: #f0f0f0;
 }
 
 
-/* first card */
+/* =========================================
+   CARD CONTENT
+   ========================================= */
 
-.service-card.active {
-  border-color: rgba(124,60,255,.7);
+.service-card-content {
+    padding: 20px;
 
-  box-shadow:
-    0 0 0 1px rgba(124,60,255,.08),
-    0 20px 70px rgba(124,60,255,.08);
+    display: flex;
+    flex-direction: column;
+
+    min-width: 0;
 }
 
+.service-top {
+    display: flex;
+    justify-content: space-between;
 
-/* ================================
-   ICON
-================================ */
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: .08em;
 
-.service-icon {
-  position: relative;
-  z-index: 2;
-
-  width: 52px;
-  height: 52px;
-
-  display: grid;
-  place-items: center;
-
-  margin-bottom: 28px;
-
-  border-radius: 15px;
-
-  background: rgba(255,255,255,.055);
-
-  font-size: 24px;
-
-  transition: transform .4s ease;
+    color: #777;
 }
-
-.service-card:hover .service-icon {
-  transform: rotate(-5deg) scale(1.08);
-}
-
-
-/* ================================
-   CONTENT
-================================ */
 
 .service-card h3 {
-  position: relative;
-  z-index: 2;
+    margin: 0;
 
-  margin: 0 0 14px;
+    font-family: var(--font-heading);
+    font-size: clamp(26px, 2.4vw, 38px);
+    font-weight: 500;
 
-  font-size: 26px;
-  letter-spacing: -1px;
+    line-height: 1.05;
+    letter-spacing: -.035em;
+
+    max-width: 280px;
 }
 
-.service-card p {
-  position: relative;
-  z-index: 2;
-
-  max-width: 420px;
-
-  margin: 0 0 28px;
-
-  color: #85858d;
-
-  font-size: 14px;
-  line-height: 1.7;
+.service-bottom {
+    margin-top: auto;
 }
 
+.service-bottom p {
+    padding-top: 20px;
+    margin: 0 0 22px;
 
-/* ================================
-   TAGS
-================================ */
+    border-top: 1px solid #d6d6d6;
 
-.service-tags {
-  position: relative;
-  z-index: 2;
+    max-width: 300px;
 
-  display: flex;
-  flex-wrap: wrap;
-
-  gap: 9px;
-}
-
-.service-tags span {
-  padding: 9px 14px;
-
-  border: 1px solid rgba(255,255,255,.09);
-
-  border-radius: 999px;
-
-  background: rgba(255,255,255,.035);
-
-  color: #a7a7ad;
-
-  font-size: 12px;
-  font-weight: 600;
-
-  transition: .3s ease;
-}
-
-.service-tags span:hover {
-  color: #fff;
-
-  border-color: rgba(255,255,255,.25);
-
-  background: rgba(255,255,255,.08);
-}
-
-
-/* ================================
-   ARROW
-================================ */
-
-.service-arrow {
-  position: absolute;
-
-  top: 36px;
-  right: 36px;
-
-  width: 42px;
-  height: 42px;
-
-  display: grid;
-  place-items: center;
-
-  border: 1px solid rgba(255,255,255,.08);
-  border-radius: 50%;
-
-  color: #777;
-
-  font-size: 20px;
-
-  transition: .35s ease;
-}
-
-.service-card:hover .service-arrow {
-  color: #fff;
-
-  background: #7c3cff;
-
-  border-color: #7c3cff;
-
-  transform: rotate(45deg);
-}
-
-
-/* ================================
-   LIGHT THEME
-   Navbar button should set:
-   html[data-theme="light"]
-================================ */
-
-html[data-theme="light"] .services-section {
-  background: #f6f6f4;
-  color: #111;
-}
-
-html[data-theme="light"] .tech-track span {
-  color: #555;
-  background: rgba(0,0,0,.025);
-  border-color: rgba(0,0,0,.09);
-}
-
-html[data-theme="light"] .tech-track span:hover {
-  color: #111;
-  background: rgba(0,0,0,.06);
-  border-color: rgba(0,0,0,.2);
-}
-
-html[data-theme="light"] .services-heading h2 span {
-  background: linear-gradient(
-    90deg,
-    #111,
-    #777,
-    #111
-  );
-
-  background-size: 200% auto;
-
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-html[data-theme="light"] .services-heading p {
-  color: #68686d;
-}
-
-html[data-theme="light"] .service-card {
-  border-color: rgba(0,0,0,.09);
-
-  background:
-    linear-gradient(
-      145deg,
-      rgba(255,255,255,.9),
-      rgba(245,245,245,.7)
-    );
-
-  box-shadow:
-    0 15px 50px rgba(0,0,0,.04);
-}
-
-html[data-theme="light"] .service-card:hover {
-  border-color: rgba(124,60,255,.45);
-
-  box-shadow:
-    0 25px 70px rgba(0,0,0,.08);
-}
-
-html[data-theme="light"] .service-card p {
-  color: #707077;
-}
-
-html[data-theme="light"] .service-icon {
-  background: rgba(0,0,0,.045);
-}
-
-html[data-theme="light"] .service-tags span {
-  color: #5f5f66;
-  border-color: rgba(0,0,0,.09);
-  background: rgba(0,0,0,.025);
-}
-
-html[data-theme="light"] .service-tags span:hover {
-  color: #111;
-  background: rgba(0,0,0,.07);
-}
-
-html[data-theme="light"] .service-arrow {
-  color: #777;
-  border-color: rgba(0,0,0,.1);
-}
-
-
-/* ================================
-   RESPONSIVE
-================================ */
-
-@media (max-width: 1100px) {
-
-  .services-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-}
-
-@media (max-width: 700px) {
-
-  .services-section {
-    padding: 90px 20px;
-  }
-
-  .tech-marquee {
-    margin-bottom: 80px;
-  }
-
-  .services-heading {
-    margin-bottom: 50px;
-  }
-
-  .services-heading h2 {
-    font-size: 44px;
-    letter-spacing: -2.5px;
-  }
-
-  .services-heading p {
+    font-family: var(--font-body);
     font-size: 15px;
-  }
+    line-height: 1.55;
 
-  .services-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .service-card {
-    min-height: auto;
-    padding: 35px 28px;
-  }
-
-  .service-arrow {
-    top: 28px;
-    right: 28px;
-  }
-
+    color: #666;
 }
+
+.service-bottom a {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+
+    color: #111;
+    text-decoration: none;
+
+    font-family: var(--font-mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+
+    transition: gap .3s ease;
+}
+
+.service-bottom a span {
+    font-size: 15px;
+}
+
+.service-bottom a:hover {
+    gap: 17px;
+}
+
 
 /* =========================================
-   VELNOX SERVICES — THEME SYNC
-   Uses body.light-theme from navbar.js
-========================================= */
+   IMAGE
+   ========================================= */
 
-/* DARK — default */
+.service-image {
+    height: 100%;
+    overflow: hidden;
+}
 
-.services-section {
-    background: #090a0d;
-    color: #fff;
+.service-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
 
     transition:
-        background 0.4s ease,
-        color 0.4s ease;
+        transform .8s cubic-bezier(.22,1,.36,1);
 }
 
-.service-card {
-    background: #111216;
-    color: #fff;
-    border-color: rgba(255,255,255,0.09);
-
-    transition:
-        background 0.4s ease,
-        color 0.4s ease,
-        border-color 0.4s ease,
-        box-shadow 0.4s ease,
-        transform 0.4s ease;
+.service-card:hover .service-image img {
+    transform: scale(1.045);
 }
 
-.services-heading h2,
-.service-card h3 {
-    color: #fff;
+
+/* =========================================
+   CTA
+   ========================================= */
+
+.services-cta {
+    margin-top: 110px;
+
+    padding-top: 35px;
+
+    border-top: 1px solid #dcdcdc;
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
 }
 
-.services-heading p,
-.service-card p {
-    color: #85858d;
-}
+.services-cta > div > span {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: .1em;
 
-.service-tags span {
-    color: #aaa;
-    background: rgba(255,255,255,0.04);
-    border-color: rgba(255,255,255,0.09);
-}
-
-.service-icon {
-    background: rgba(255,255,255,0.06);
-}
-
-.service-arrow {
     color: #888;
-    border-color: rgba(255,255,255,0.1);
 }
 
-.tech-track span {
-    color: #999;
-    background: rgba(255,255,255,0.025);
-    border-color: rgba(255,255,255,0.09);
+.services-cta h3 {
+    margin: 18px 0 0;
+
+    font-family: var(--font-heading);
+    font-size: clamp(36px, 4vw, 58px);
+    font-weight: 500;
+
+    line-height: 1;
+    letter-spacing: -.045em;
+}
+
+.services-cta h3 em {
+    color: #777;
+    font-style: normal;
+}
+
+.services-cta > a {
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+
+    padding: 14px 20px;
+
+    border: 1px solid #111;
+    border-radius: 50px;
+
+    color: #111;
+    text-decoration: none;
+
+    font-family: var(--font-body);
+    font-size: 14px;
+
+    transition:
+        background .3s ease,
+        color .3s ease;
+}
+
+.services-cta > a span {
+    font-size: 18px;
+}
+
+.services-cta > a:hover {
+    background: #111;
+    color: #fff;
 }
 
 
 /* =========================================
-   LIGHT THEME
-========================================= */
+   SCROLL REVEAL
+   ========================================= */
 
-body.light-theme .services-section {
-    background: #f5f5f3 !important;
-    color: #111 !important;
+.reveal {
+    opacity: 0;
+    transform: translateY(55px);
+
+    transition:
+        opacity .9s cubic-bezier(.22,1,.36,1),
+        transform .9s cubic-bezier(.22,1,.36,1);
 }
 
-body.light-theme .services-heading h2,
-body.light-theme .service-card h3 {
-    color: #111 !important;
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
-body.light-theme .services-heading p,
-body.light-theme .service-card p {
-    color: #66666d !important;
+.reveal-right {
+    transform: translateX(65px);
 }
 
-
-/* Cards */
-
-body.light-theme .service-card {
-    background: #fff !important;
-    color: #111 !important;
-
-    border-color: rgba(0,0,0,0.1) !important;
-
-    box-shadow:
-        0 15px 45px rgba(0,0,0,0.05);
+.reveal-right.visible {
+    transform: translateX(0);
 }
 
 
-/* Card hover */
+/* =========================================
+   STAGGER CARDS
+   ========================================= */
 
-body.light-theme .service-card:hover {
-    border-color: rgba(124,60,255,0.4) !important;
+.service-card:nth-child(1) {
+    transition-delay: .05s;
+}
 
-    box-shadow:
-        0 25px 70px rgba(0,0,0,0.1);
+.service-card:nth-child(2) {
+    transition-delay: .12s;
+}
+
+.service-card:nth-child(3) {
+    transition-delay: .19s;
+}
+
+.service-card:nth-child(4) {
+    transition-delay: .26s;
+}
+
+.service-card:nth-child(5) {
+    transition-delay: .33s;
+}
+
+.service-card:nth-child(6) {
+    transition-delay: .40s;
 }
 
 
-/* Tags */
+/* =========================================
+   TABLET
+   ========================================= */
 
-body.light-theme .service-tags span {
-    color: #555 !important;
+@media (max-width: 950px) {
 
-    background: rgba(0,0,0,0.035) !important;
+    .services-section {
+        padding: 90px 0 110px;
+    }
 
-    border-color: rgba(0,0,0,0.1) !important;
+    .services-container {
+        width: min(100% - 40px, 1280px);
+    }
+
+    .services-header {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .services-header p {
+        max-width: 600px;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .service-card {
+        min-height: 450px;
+    }
 }
 
 
-/* Icon */
+/* =========================================
+   MOBILE
+   ========================================= */
 
-body.light-theme .service-icon {
-    background: rgba(0,0,0,0.05) !important;
+@media (max-width: 600px) {
+
+    .services-section {
+        padding: 70px 0 90px;
+    }
+
+    .services-container {
+        width: calc(100% - 32px);
+    }
+
+    .services-header {
+        margin-bottom: 45px;
+    }
+
+    .services-header h2 {
+        font-size: clamp(42px, 12vw, 62px);
+    }
+
+    .services-header p {
+        font-size: 15px;
+    }
+
+    .services-grid {
+        gap: 10px;
+    }
+
+    .service-card {
+        min-height: 410px;
+
+        grid-template-columns: 1fr 45%;
+    }
+
+    .service-card-content {
+        padding: 16px;
+    }
+
+    .service-card h3 {
+        font-size: 25px;
+    }
+
+    .service-bottom p {
+        font-size: 13px;
+    }
+
+    .services-cta {
+        margin-top: 75px;
+
+        align-items: flex-start;
+        flex-direction: column;
+
+        gap: 30px;
+    }
+
+    .services-cta > a {
+        font-size: 13px;
+    }
+
+    .reveal-right {
+        transform: translateY(40px);
+    }
+
+    .reveal-right.visible {
+        transform: translateY(0);
+    }
 }
 
 
-/* Arrow */
+/* =========================================
+   REDUCED MOTION
+   ========================================= */
 
-body.light-theme .service-arrow {
-    color: #555 !important;
+@media (prefers-reduced-motion: reduce) {
 
-    border-color: rgba(0,0,0,0.12) !important;
-}
+    .reveal,
+    .reveal-right {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
 
-
-/* Tech marquee */
-
-body.light-theme .tech-track span {
-    color: #555 !important;
-
-    background: rgba(0,0,0,0.025) !important;
-
-    border-color: rgba(0,0,0,0.1) !important;
-}
-
-
-/* Label */
-
-body.light-theme .services-label {
-    color: #666 !important;
+    .service-card,
+    .service-image img {
+        transition: none;
+    }
 }

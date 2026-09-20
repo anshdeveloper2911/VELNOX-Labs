@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>VELNOX Admin</title>
+  <style>
+    body{font-family:Inter,Arial,sans-serif;margin:0;background:#090909;color:#eee}button,input,textarea,select{font:inherit}button{cursor:pointer}.wrap{max-width:1200px;margin:auto;padding:28px}.card{background:#141414;border:1px solid #292929;border-radius:16px;padding:20px;margin-bottom:18px}.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.stat{font-size:28px;font-weight:800}.muted{color:#999}.hidden{display:none!important}.row{display:flex;gap:10px;align-items:center;justify-content:space-between}.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:20px 0}.tabs button{background:#222;color:#fff;border:1px solid #333;padding:10px 14px;border-radius:10px}.tabs button.active{background:#fff;color:#000}.item{border-top:1px solid #292929;padding:15px 0}.item:first-child{border-top:0}.actions{display:flex;gap:8px;flex-wrap:wrap}button.primary{background:#fff;color:#000;border:0;padding:10px 14px;border-radius:10px}button.danger{background:#5d1717;color:#fff;border:0;padding:8px 12px;border-radius:9px}input,textarea,select{width:100%;box-sizing:border-box;background:#0e0e0e;border:1px solid #333;color:#fff;padding:11px;border-radius:9px;margin:6px 0 12px}textarea{min-height:120px;resize:vertical}label{font-size:13px;color:#aaa}.formgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.notice{padding:10px;border-radius:9px;background:#1d291d;color:#b9e5b9}.error{padding:10px;border-radius:9px;background:#321717;color:#ffb4b4}@media(max-width:800px){.grid,.formgrid{grid-template-columns:1fr 1fr}}@media(max-width:520px){.grid,.formgrid{grid-template-columns:1fr}.wrap{padding:16px}.row{align-items:flex-start}}#login{max-width:420px;margin:12vh auto}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <section id="login" class="card">
+      <h1>VELNOX Admin</h1>
+      <p class="muted">Secure project management dashboard</p>
+      <label for="u">Username</label>
+      <input id="u" autocomplete="username" value="admin">
+      <label for="p">Password</label>
+      <input id="p" type="password" autocomplete="current-password">
+      <button class="primary" id="loginBtn" type="button">Sign in</button>
+      <p id="loginMsg"></p>
+    </section>
+
+    <section id="app" class="hidden">
+      <div class="row">
+        <div><h1>VELNOX Control Center</h1><p class="muted">Manage enquiries, projects and testimonials.</p></div>
+        <button id="logoutBtn" type="button">Logout</button>
+      </div>
+      <div id="stats" class="grid"></div>
+      <div class="tabs">
+        <button type="button" data-tab="enquiries" id="t-enquiries">Enquiries</button>
+        <button type="button" data-tab="projects" id="t-projects">Projects</button>
+        <button type="button" data-tab="testimonials" id="t-testimonials">Testimonials</button>
+      </div>
+      <div id="content"></div>
+    </section>
+  </div>
+  <script src="/admin/admin.js" defer></script>
+</body>
+</html>

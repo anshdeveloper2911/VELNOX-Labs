@@ -1,39 +1,69 @@
-<nav class="navbar" id="navbar">
+<nav class="navbar" id="navbar-main">
 
-    <div class="navbar-container">
+    <div class="nav-container">
 
-        <!-- LOGO -->
-        <a href="#hero" class="navbar-logo">
-
-            <span class="logo-mark">V</span>
-
-            <div class="logo-text">
-                <strong>VELNOX</strong>
-                <small>WEB LABS</small>
-            </div>
-
+        <!-- VELNOX TEXT LOGO -->
+        <a href="#home" class="nav-logo" aria-label="VELNOX Web Labs">
+            <span class="logo-name">VELNOX</span>
+            <span class="logo-sub">WEB LABS</span>
         </a>
 
+        <!-- DESKTOP NAV -->
+        <div class="nav-links">
+            <a href="#home" class="nav-link active">Home</a>
+            <a href="#about" class="nav-link">About</a>
+            <a href="#services" class="nav-link">Services</a>
+            <a href="#works" class="nav-link">Projects</a>
+            <a href="#team" class="nav-link">Career</a>
+        </div>
 
         <!-- ACTIONS -->
-        <div class="navbar-actions">
+        <div class="nav-actions">
+            <a href="#contact" class="nav-contact">Contact Us</a>
 
-            <!-- THEME -->
-            <button
-                class="theme-btn"
-                id="themeBtn"
-                aria-label="Toggle theme">
-                ☼
+            <a href="#contact" class="nav-arrow" aria-label="Contact Us">↗</a>
+            <button id="velnox-login" class="auth-trigger" type="button" onclick="window.VELNOX_OPEN_AUTH?.()" aria-haspopup="dialog">
+                <span class="auth-dot" aria-hidden="true"></span>
+                <span>Sign in</span>
             </button>
-
-
-            <!-- START PROJECT -->
-            <a href="#contact" class="navbar-cta">
-                Start a Project
-                <span>↗</span>
-            </a>
-
+            <button id="velnox-account" type="button" hidden onclick="window.VELNOX_SIGN_OUT?.()" title="Sign out">
+                <img id="velnox-avatar" src="assets/favicon.png" alt="">
+                <span id="velnox-user-name">Account</span>
+            </button>
         </div>
+
+        <!-- MOBILE -->
+        <button
+            class="nav-menu"
+            aria-label="Open menu"
+            aria-expanded="false"
+        >
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+    </div>
+
+    <!-- MOBILE MENU -->
+    <div class="mobile-menu">
+
+        <div class="mobile-links">
+            <a href="#home" class="mobile-link active">Home</a>
+            <a href="#about" class="mobile-link">About</a>
+            <a href="#services" class="mobile-link">Services</a>
+            <a href="#works" class="mobile-link">Projects</a>
+            <a href="#team" class="mobile-link">Career</a>
+        </div>
+
+        <a href="#contact" class="mobile-contact">
+            <span>Contact Us</span>
+            <span>↗</span>
+        </a>
+        <button class="mobile-auth-trigger" type="button" onclick="window.VELNOX_OPEN_AUTH?.()">
+            <span>Account access</span>
+            <span>↗</span>
+        </button>
 
     </div>
 
